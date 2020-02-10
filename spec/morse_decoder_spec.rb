@@ -86,6 +86,9 @@ describe Morse_decoder do
     it 'returns "ABC" when passed the string ".- -... -.-."' do
       expect(morse_decoder.decode_morse('.- -... -.-.')).to eq('ABC')
     end
+    it "returns '&'@)(:,=!.-+?/' when passed the string '.-... .----. .--.-. -.--.- -.--. ---... --..-- -...- -.-.-- .-.-.- -....- .-.-. ..--.. -..-.'" do
+      expect(morse_decoder.decode_morse(".-... .----. .--.-. -.--.- -.--. ---... --..-- -...- -.-.-- .-.-.- -....- .-.-. ..--.. -..-.")).to eq("&'@)(:,=!.-+?/")
+    end
     it 'Translates a randomly-generated word in Morse code' do
       key1 = Morse_to_english_dictionary.keys.sample
       key2 = Morse_to_english_dictionary.keys.sample
