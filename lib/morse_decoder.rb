@@ -4,6 +4,11 @@ class Morse_decoder
       "Unable to decode: input is not valid Morse code."
     end
   end
+  class EnglishInputError < StandardError
+    def message
+      "Unable to decode: input contains English character(s), number(s) or symbol(s)"
+    end
+  end
 
   Morse_to_english_dictionary = {
     ".-"    => "A",
@@ -76,7 +81,7 @@ class Morse_decoder
   def self.decode_morse_character(morse_character)
 
     if morse_character.upcase =~ /[A-Z, 0-9, \\?&'@)(:,=!+]/
-      raise "Unable to decode: input contains English character(s), number(s) or symbol(s)"
+      raise EnglishInputError
     elsif (morse_character.include?(".") || morse_character.include?("-")) &&
       Morse_to_english_dictionary[morse_character] == nil
       raise InvalidMorseError
