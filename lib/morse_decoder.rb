@@ -55,13 +55,11 @@ class Morse_decoder
 
   def self.decode_morse(morse_message)
     if morse_message.include?(" ")
-      if morse_message == '.- .- .-'
-        "AAA"
-      elsif morse_message == '.- -... -...'
-        "ABB"
-      else
-        "ABC"
+      morse_word = morse_message.split(" ")
+      english_word = morse_word.map do |morse_character|
+        Morse_to_english_dictionary[morse_character]
       end
+      return english_word.join("")
     else
       Morse_to_english_dictionary[morse_message]
     end

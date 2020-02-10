@@ -7,7 +7,7 @@ describe 'User stories' do
     expect { Morse_decoder.decode_morse(".-") }.not_to raise_error
     expect(Morse_decoder.decode_morse('.-')).to eq('A')
   end
-  it 'Translates a different Morse code character to English' do
+  it 'Translates a second Morse code character to English' do
     expect(Morse_decoder.decode_morse('-...')).to eq('B')
   end
   it 'Translates a third Morse code character to English' do
@@ -21,7 +21,7 @@ describe 'User stories' do
   it 'Translates a word in Morse code' do
     expect(Morse_decoder.decode_morse('.- .- .-')).to eq('AAA')
   end
-  it 'Translates a different word in Morse code' do
+  it 'Translates a second word in Morse code' do
     expect(Morse_decoder.decode_morse('.- -... -...')).to eq('ABB')
   end
   it 'Translates a third word in Morse code' do
