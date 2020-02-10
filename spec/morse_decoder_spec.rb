@@ -77,8 +77,11 @@ describe Morse_decoder do
       p "test ran with corresponding value: #{value}"
       expect(morse_decoder.decode_morse(key)).to eq(value)
     end
-    it 'returns "ABC" when passed the string ".- -... -.-."' do
-      expect(Morse_decoder.decode_morse('.- -... -.-.')).to eq('ABC')
+    it 'returns "AAA" when passed the string ".- .- .-"' do
+      expect(Morse_decoder.decode_morse('.- .- .-')).to eq('AAA')
+    end
+    it 'returns "ABB" when passed the string ".- -... -..."' do
+      expect(Morse_decoder.decode_morse('.- -... -...')).to eq('ABB')
     end
   end
 end

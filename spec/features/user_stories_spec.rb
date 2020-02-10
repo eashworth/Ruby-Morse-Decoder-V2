@@ -19,6 +19,9 @@ describe 'User stories' do
   # So I can understand words in Morse code
   # I would like to translate a word in Morse code to English
   it 'Translates a word in Morse code' do
-    expect(Morse_decoder.decode_morse('.- -... -.-.')).to eq('ABC')
+    expect(Morse_decoder.decode_morse('.- .- .-')).to eq('AAA')
+  end
+  it 'Translates a different word in Morse code' do
+    expect(Morse_decoder.decode_morse('.- -... -...')).to eq('ABB')
   end
 end
