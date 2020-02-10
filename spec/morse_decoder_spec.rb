@@ -89,6 +89,9 @@ describe Morse_decoder do
     it "returns '&'@)(:,=!.-+?/' when passed the string '.-... .----. .--.-. -.--.- -.--. ---... --..-- -...- -.-.-- .-.-.- -....- .-.-. ..--.. -..-.'" do
       expect(morse_decoder.decode_morse(".-... .----. .--.-. -.--.- -.--. ---... --..-- -...- -.-.-- .-.-.- -....- .-.-. ..--.. -..-.")).to eq("&'@)(:,=!.-+?/")
     end
+    it "returns '1234567890' when passed the string '.---- ..--- ...-- ....- ..... -.... --... ---.. ----. -----'" do
+      expect(morse_decoder.decode_morse(".---- ..--- ...-- ....- ..... -.... --... ---.. ----. -----")).to eq("1234567890")
+    end
     it 'Translates a randomly-generated word in Morse code' do
       key1 = Morse_to_english_dictionary.keys.sample
       key2 = Morse_to_english_dictionary.keys.sample
