@@ -49,6 +49,7 @@ describe 'User stories' do
   it 'Raises an error if input is not valid Morse code' do
     expect { Morse_decoder.decode_morse("..............") }.to raise_error
   end
+
   # User story 5:
   # As an English speaker
   # So I can identify whether a message is in Morse code

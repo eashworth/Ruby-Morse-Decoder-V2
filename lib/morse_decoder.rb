@@ -1,4 +1,10 @@
 class Morse_decoder
+  class InvalidMorseError < StandardError
+    def message
+      "Unable to decode: input is not valid Morse code."
+    end
+  end
+
   Morse_to_english_dictionary = {
     ".-"    => "A",
     "-..."  => "B",
@@ -54,10 +60,6 @@ class Morse_decoder
   }
 
   def self.decode_morse(morse_message)
-    # raise_error if morse_message
-    # How to detect not valid Morse? not in dictionary
-    # Detect within decode_morse_character method
-    # but what if just empty? Should just go to decode_morse_character
     if morse_message.include?("/")
       decode_morse_sentence(morse_message)
     elsif morse_message.include?(" ")
@@ -77,7 +79,7 @@ class Morse_decoder
       raise "Unable to decode: input contains English character(s), number(s) or symbol(s)"
     elsif (morse_character.include?(".") || morse_character.include?("-")) &&
       Morse_to_english_dictionary[morse_character] == nil
-      raise "Unable to decode: input is not valid Morse code."
+      raise InvalidMorseError
     else
       Morse_to_english_dictionary[morse_character]
     end
@@ -86,6 +88,10 @@ class Morse_decoder
   def self.decode_morse_word(morse_word)
     morse_word_split = morse_word.split(" ")
     english_word = morse_word_split.map do |morse_character|
+      begin
+        "Morse message contains typo at character 2"
+      rescue
+      end
       decode_morse_character(morse_character)
     end
     return english_word.join("")
