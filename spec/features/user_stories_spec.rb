@@ -41,4 +41,12 @@ describe 'User stories' do
   it 'Translates a third sentence in Morse code' do
     expect(Morse_decoder.decode_morse(".... ../.... ---")).to eq('HI HO')
   end
+
+  # User story 4:
+  # As an English speaker
+  # So I can identify whether a message is in Morse code
+  # I want to be told if the message input is not valid Morse code
+  it 'Raises an error if input is not valid Morse code' do
+    expect { Morse_decoder.decode_morse("A") }.to raise_error
+  end
 end

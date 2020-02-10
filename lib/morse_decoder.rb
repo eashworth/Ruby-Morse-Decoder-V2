@@ -54,6 +54,10 @@ class Morse_decoder
   }
 
   def self.decode_morse(morse_message)
+    # raise_error if morse_message
+    # How to detect not valid Morse? not in dictionary
+    # Detect within decode_morse_character method
+    # but what if just empty? Should just go to decode_morse_character
     if morse_message.include?("/")
       decode_morse_sentence(morse_message)
     elsif morse_message.include?(" ")
@@ -68,6 +72,7 @@ class Morse_decoder
   private
 
   def self.decode_morse_character(morse_character)
+    raise "Unable to decode: input is not valid Morse code." if Morse_to_english_dictionary[morse_character] == nil
     Morse_to_english_dictionary[morse_character]
   end
 
