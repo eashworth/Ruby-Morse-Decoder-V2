@@ -24,4 +24,7 @@ describe 'User stories' do
   it 'Translates a different word in Morse code' do
     expect(Morse_decoder.decode_morse('.- -... -...')).to eq('ABB')
   end
+  it 'Translates a third word in Morse code' do
+    expect(Morse_decoder.decode_morse('.- -... -.-.')).to eq('ABC')
+  end
 end

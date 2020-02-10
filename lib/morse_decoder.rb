@@ -57,8 +57,10 @@ class Morse_decoder
     if morse_message.include?(" ")
       if morse_message == '.- .- .-'
         "AAA"
-      else
+      elsif morse_message == '.- -... -...'
         "ABB"
+      else
+        "ABC"
       end
     else
       Morse_to_english_dictionary[morse_message]

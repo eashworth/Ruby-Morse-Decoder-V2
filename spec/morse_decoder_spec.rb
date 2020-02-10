@@ -83,5 +83,8 @@ describe Morse_decoder do
     it 'returns "ABB" when passed the string ".- -... -..."' do
       expect(Morse_decoder.decode_morse('.- -... -...')).to eq('ABB')
     end
+    it 'returns "ABC" when passed the string ".- -... -.-."' do
+      expect(morse_decoder.decode_morse('.- -... -.-.')).to eq('ABC')
+    end
   end
 end
