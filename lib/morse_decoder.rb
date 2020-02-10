@@ -73,7 +73,7 @@ class Morse_decoder
 
   def self.decode_morse_character(morse_character)
 
-    if morse_character =~ /[A-Z, 0-9, \\?&'@)(:,=!+]/
+    if morse_character.upcase =~ /[A-Z, 0-9, \\?&'@)(:,=!+]/
       raise "Unable to decode: input contains English character(s), number(s) or symbol(s)"
     elsif (morse_character.include?(".") || morse_character.include?("-")) &&
       Morse_to_english_dictionary[morse_character] == nil
@@ -81,16 +81,6 @@ class Morse_decoder
     else
       Morse_to_english_dictionary[morse_character]
     end
-
-    # If English input is without / or spaces, what will happen?
-    # It will go into decode_morse_character as input
-
-    # Will see any dot as a full stop
-    # Use list of English chars instead (without full stop)
-    # What about /? That should be removd by decode_morse_sentence
-    # Spaces should be removed by decode_morse_word
-    # Maybe try and deal with lower case English input too?
-
   end
 
   def self.decode_morse_word(morse_word)
