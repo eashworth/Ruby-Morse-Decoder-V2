@@ -32,7 +32,10 @@ describe 'User stories' do
   # As an English speaker
   # So I can understand a sentence in Morse code
   # I would like to translate a sentence in Morse code to English
-  it 'Translates a setence in Morse code' do
-    expect(Morse_decoder.decode_morse(".... . .-.. .-.. ---/.-- --- .-. .-.. -.. -.-.--")).to eq('HELLO WORLD!')
+  it 'Translates a sentence in Morse code' do
+    expect(Morse_decoder.decode_morse(".... . .-.. .-.. ---/.-- --- .-. .-.. -..")).to eq('HELLO WORLD')
+  end
+  it 'Translates a second sentence in Morse code' do
+    expect(Morse_decoder.decode_morse(".... ../.-- --- .-. .-.. -..")).to eq('HI WORLD')
   end
 end

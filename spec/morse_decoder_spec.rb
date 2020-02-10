@@ -78,10 +78,10 @@ describe Morse_decoder do
       expect(morse_decoder.decode_morse(key)).to eq(value)
     end
     it 'returns "AAA" when passed the string ".- .- .-"' do
-      expect(Morse_decoder.decode_morse('.- .- .-')).to eq('AAA')
+      expect(morse_decoder.decode_morse('.- .- .-')).to eq('AAA')
     end
     it 'returns "ABB" when passed the string ".- -... -..."' do
-      expect(Morse_decoder.decode_morse('.- -... -...')).to eq('ABB')
+      expect(morse_decoder.decode_morse('.- -... -...')).to eq('ABB')
     end
     it 'returns "ABC" when passed the string ".- -... -.-."' do
       expect(morse_decoder.decode_morse('.- -... -.-.')).to eq('ABC')
@@ -97,10 +97,13 @@ describe Morse_decoder do
       corresponding_english_word = "#{value1}#{value2}#{value3}"
       p "Test ran with randomly-generated Morse word: #{random_morse_word}"
       p "Corresponding English word: #{corresponding_english_word}"
-      expect(Morse_decoder.decode_morse("#{random_morse_word}")).to eq("#{corresponding_english_word}")
+      expect(morse_decoder.decode_morse("#{random_morse_word}")).to eq("#{corresponding_english_word}")
     end
-    it "returns 'HELLO WORLD!' when passed the string '.... . .-.. .-.. ---/.-- --- .-. .-.. -.. -.-.--'" do
-      expect(Morse_decoder.decode_morse(".... . .-.. .-.. ---/.-- --- .-. .-.. -.. -.-.--")).to eq('HELLO WORLD!')
+    it "returns 'HELLO WORLD' when passed the string '.... . .-.. .-.. ---/.-- --- .-. .-.. -..'" do
+      expect(morse_decoder.decode_morse(".... . .-.. .-.. ---/.-- --- .-. .-.. -..")).to eq('HELLO WORLD')
+    end
+    it "returns 'HI WORLD' when passed the string '.... ../.-- --- .-. .-.. -..'" do
+      expect(morse_decoder.decode_morse(".... ../.-- --- .-. .-.. -..")).to eq('HI WORLD')
     end
   end
 end
