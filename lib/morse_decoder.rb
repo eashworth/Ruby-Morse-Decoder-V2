@@ -88,10 +88,6 @@ class Morse_decoder
   def self.decode_morse_word(morse_word)
     morse_word_split = morse_word.split(" ")
     english_word = morse_word_split.map do |morse_character|
-      begin
-        "Morse message contains typo at character 2"
-      rescue
-      end
       decode_morse_character(morse_character)
     end
     return english_word.join("")
