@@ -38,4 +38,7 @@ describe 'User stories' do
   it 'Translates a second sentence in Morse code' do
     expect(Morse_decoder.decode_morse(".... ../.-- --- .-. .-.. -..")).to eq('HI WORLD')
   end
+  it 'Translates a third sentence in Morse code' do
+    expect(Morse_decoder.decode_morse(".... ../.... ---")).to eq('HI HO')
+  end
 end

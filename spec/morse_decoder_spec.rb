@@ -105,5 +105,8 @@ describe Morse_decoder do
     it "returns 'HI WORLD' when passed the string '.... ../.-- --- .-. .-.. -..'" do
       expect(morse_decoder.decode_morse(".... ../.-- --- .-. .-.. -..")).to eq('HI WORLD')
     end
+    it "returns 'HI HO' when passed the string '.... ../.... ---'" do
+      expect(morse_decoder.decode_morse(".... ../.... ---")).to eq('HI HO')
+    end
   end
 end

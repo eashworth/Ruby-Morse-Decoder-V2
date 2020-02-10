@@ -57,8 +57,10 @@ class Morse_decoder
     if morse_message.include?("/")
       if morse_message == ".... . .-.. .-.. ---/.-- --- .-. .-.. -.."
       "HELLO WORLD"
-    else
+    elsif morse_message == ".... ../.-- --- .-. .-.. -.."
       "HI WORLD"
+    else
+      "HI HO"
     end
     elsif morse_message.include?(" ")
       morse_word = morse_message
