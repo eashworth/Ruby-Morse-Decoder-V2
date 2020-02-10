@@ -91,9 +91,7 @@ class Morse_decoder
   def self.validate_character(morse_character)
     raise EnglishInputError if english_input?(morse_character)
     raise InvalidMorseError if invalid_morse?(morse_character)
-    if Morse_to_english_dictionary[morse_character] == nil
-      raise EmptyStringError
-    end
+    raise EmptyStringError if string_input_empty?(morse_character)
   end
 
   def self.english_input?(morse_character)
@@ -103,6 +101,10 @@ class Morse_decoder
   def self.invalid_morse?(morse_character)
     (morse_character.include?(".") || morse_character.include?("-")) &&
       Morse_to_english_dictionary[morse_character] == nil
+  end
+
+  def self.string_input_empty?(morse_character)
+    Morse_to_english_dictionary[morse_character] == nil
   end
 
   def self.decode_morse_word(morse_word)
