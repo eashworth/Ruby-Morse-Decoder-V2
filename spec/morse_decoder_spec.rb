@@ -9,4 +9,7 @@ describe Morse_decoder do
   it 'returns "A" when passed the string ".-"' do
     expect(morse_decoder.decode_morse('.-')).to eq('A')
   end
+  it 'returns "B" when passed the string "-..."' do
+    expect(morse_decoder.decode_morse('-...')).to eq('B')
+  end
 end

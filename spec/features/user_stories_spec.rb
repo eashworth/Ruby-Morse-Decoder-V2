@@ -7,4 +7,7 @@ describe 'User stories' do
     expect { Morse_decoder.decode_morse(".-") }.not_to raise_error
     expect(Morse_decoder.decode_morse('.-')).to eq('A')
   end
+  it 'Translate a different Morse code character to English' do
+    expect(Morse_decoder.decode_morse('-...')).to eq('B')
+  end
 end
