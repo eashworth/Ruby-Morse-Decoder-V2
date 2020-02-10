@@ -57,7 +57,7 @@ class Morse_decoder
     if morse_message.include?(" ")
       morse_word = morse_message.split(" ")
       english_word = morse_word.map do |morse_character|
-        Morse_to_english_dictionary[morse_character]
+        decode_morse_character(morse_character)
       end
       return english_word.join("")
     else
