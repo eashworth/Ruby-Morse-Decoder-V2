@@ -86,5 +86,18 @@ describe Morse_decoder do
     it 'returns "ABC" when passed the string ".- -... -.-."' do
       expect(morse_decoder.decode_morse('.- -... -.-.')).to eq('ABC')
     end
+    it 'Translates a randomly-generated word in Morse code' do
+      key1 = Morse_to_english_dictionary.keys.sample
+      key2 = Morse_to_english_dictionary.keys.sample
+      key3 = Morse_to_english_dictionary.keys.sample
+      value1 = Morse_to_english_dictionary[key1]
+      value2 = Morse_to_english_dictionary[key2]
+      value3 = Morse_to_english_dictionary[key3]
+      random_morse_word = "#{key1} #{key2} #{key3}"
+      corresponding_english_word = "#{value1}#{value2}#{value3}"
+      p "Test ran with randomly-generated Morse word: #{random_morse_word}"
+      p "Corresponding English word: #{corresponding_english_word}"
+      expect(Morse_decoder.decode_morse("#{random_morse_word}")).to eq("#{corresponding_english_word}")
+    end
   end
 end
