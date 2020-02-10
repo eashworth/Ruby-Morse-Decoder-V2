@@ -55,13 +55,11 @@ class Morse_decoder
 
   def self.decode_morse(morse_message)
     if morse_message.include?("/")
-      if morse_message == ".... . .-.. .-.. ---/.-- --- .-. .-.. -.."
-      "HELLO WORLD"
-    elsif morse_message == ".... ../.-- --- .-. .-.. -.."
-      "HI WORLD"
-    else
-      "HI HO"
-    end
+      morse_words = morse_message.split("/")
+      english_words = morse_words.map do |morse_word|
+        decode_morse_word(morse_word)
+      end
+      return english_words.join(" ")
     elsif morse_message.include?(" ")
       morse_word = morse_message
       decode_morse_word(morse_word)
