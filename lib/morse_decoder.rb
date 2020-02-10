@@ -70,8 +70,7 @@ class Morse_decoder
   }
 
   def self.decode_morse(morse_message)
-    if morse_message.include?("/")
-      decode_morse_sentence(morse_message)
+    if morse_sentence?(morse_message) then decode_morse_sentence(morse_message)
     elsif morse_message.include?(" ")
       morse_word = morse_message
       decode_morse_word(morse_word)
@@ -82,6 +81,10 @@ class Morse_decoder
   end
 
   private
+
+  def self.morse_sentence?(morse_message)
+    morse_message.include?("/")
+  end
 
   def self.decode_morse_character(morse_character)
     validate_character(morse_character)
