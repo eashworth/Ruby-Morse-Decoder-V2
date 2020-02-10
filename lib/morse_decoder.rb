@@ -84,11 +84,11 @@ class Morse_decoder
   private
 
   def self.decode_morse_character(morse_character)
-    valid_character?(morse_character)
+    validate_character(morse_character)
     Morse_to_english_dictionary[morse_character]
   end
 
-  def self.valid_character?(morse_character)
+  def self.validate_character(morse_character)
     if morse_character.upcase =~ /[A-Z, 0-9, \\?&'@)(:,=!+]/
       raise EnglishInputError
     elsif (morse_character.include?(".") || morse_character.include?("-")) &&
