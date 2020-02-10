@@ -55,11 +55,7 @@ class Morse_decoder
 
   def self.decode_morse(morse_message)
     if morse_message.include?("/")
-      morse_words = morse_message.split("/")
-      english_words = morse_words.map do |morse_word|
-        decode_morse_word(morse_word)
-      end
-      return english_words.join(" ")
+      decode_morse_sentence(morse_message)
     elsif morse_message.include?(" ")
       morse_word = morse_message
       decode_morse_word(morse_word)
@@ -81,6 +77,14 @@ class Morse_decoder
       decode_morse_character(morse_character)
     end
     return english_word.join("")
+  end
+
+  def self.decode_morse_sentence(morse_message)
+    morse_words = morse_message.split("/")
+    english_words = morse_words.map do |morse_word|
+      decode_morse_word(morse_word)
+    end
+    return english_words.join(" ")
   end
 
 end
