@@ -54,12 +54,6 @@ class Morse_decoder
   }
 
   def self.decode_morse(morse_message)
-    if morse_message == '.-'
-      Morse_to_english_dictionary[morse_message]
-    elsif morse_message == '-...'
-      Morse_to_english_dictionary[morse_message]
-    else
-      Morse_to_english_dictionary[morse_message]
-    end
+    Morse_to_english_dictionary[morse_message]
   end
 end
