@@ -61,7 +61,13 @@ class Morse_decoder
       end
       return english_word.join("")
     else
-      Morse_to_english_dictionary[morse_message]
+      morse_character = morse_message
+      decode_morse_character(morse_character)
     end
+  end
+
+  private
+  def self.decode_morse_character(morse_character)
+    Morse_to_english_dictionary[morse_character]
   end
 end
