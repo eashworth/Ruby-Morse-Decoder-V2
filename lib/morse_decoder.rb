@@ -9,6 +9,11 @@ class Morse_decoder
       "Unable to decode: input contains English character(s), number(s) or symbol(s)"
     end
   end
+  class EmptyStringError < StandardError
+    def message
+      "Nothing to decode: input is an empty string"
+    end
+  end
 
   Morse_to_english_dictionary = {
     ".-"    => "A",
@@ -85,7 +90,7 @@ class Morse_decoder
       Morse_to_english_dictionary[morse_character] == nil
       raise InvalidMorseError
     elsif Morse_to_english_dictionary[morse_character] == nil
-      raise "Nothing to decode: input is an empty string"
+      raise EmptyStringError
     else
       Morse_to_english_dictionary[morse_character]
     end
