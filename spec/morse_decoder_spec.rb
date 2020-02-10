@@ -115,7 +115,24 @@ describe Morse_decoder do
       expect(morse_decoder.decode_morse(".... ../.... ---")).to eq('HI HO')
     end
     it 'Raises an error if input is not valid Morse code' do
-      expect { morse_decoder.decode_morse("A") }.to raise_error("Unable to decode: input is not valid Morse code.")
+      expect { morse_decoder.decode_morse("..............") }.to raise_error("Unable to decode: input is not valid Morse code.")
+    end
+    it 'Raises a specific error if input contains English character(s), number(s) or symbol(s)' do
+      expect { morse_decoder.decode_morse("A") }.to raise_error("Unable to decode: input contains English character(s), number(s) or symbol(s)")
+    end
+    it 'Raises a specific error if input contains English character(s), number(s) or symbol(s)' do
+      expect { morse_decoder.decode_morse("1") }.to raise_error("Unable to decode: input contains English character(s), number(s) or symbol(s)")
+    end
+    context 'When input contains English character(s), number(s) or symbol(s)' do
+      it 'Raises error "Unable to decode: input contains English character(s), number(s) or symbol(s)"' do
+        expect { morse_decoder.decode_morse("?") }.to raise_error("Unable to decode: input contains English character(s), number(s) or symbol(s)")
+      end
+      it 'raises error "Unable to decode: input contains English character(s), number(s) or symbol(s)" even if input also contains dot(s) or dash(es)' do
+        expect { morse_decoder.decode_morse("._.HELLO.-.") }.to raise_error("Unable to decode: input contains English character(s), number(s) or symbol(s)")
+      end
+      it 'raises error "Unable to decode: input contains English character(s), number(s) or symbol(s)" even if input also contains dot(s) or dash(es) and space(s)' do
+        expect { morse_decoder.decode_morse(".-. HELLO .-.") }.to raise_error("Unable to decode: input contains English character(s), number(s) or symbol(s)")
+      end
     end
   end
 end

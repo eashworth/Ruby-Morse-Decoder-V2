@@ -47,6 +47,13 @@ describe 'User stories' do
   # So I can identify whether a message is in Morse code
   # I want to be told if the message input is not valid Morse code
   it 'Raises an error if input is not valid Morse code' do
-    expect { Morse_decoder.decode_morse("A") }.to raise_error
+    expect { Morse_decoder.decode_morse("..............") }.to raise_error
+  end
+  # User story 5:
+  # As an English speaker
+  # So I can identify whether a message is in Morse code
+  # I want to be told if the message input contains English character(s), number(s) or symbol(s)
+  it 'Raises error "Unable to decode: input contains English character(s), number(s) or symbol(s)" if input contains English character(s), number(s) or symbol(s)' do
+    expect { Morse_decoder.decode_morse("A") }.to raise_error("Unable to decode: input contains English character(s), number(s) or symbol(s)")
   end
 end
