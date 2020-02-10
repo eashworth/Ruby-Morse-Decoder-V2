@@ -99,5 +99,8 @@ describe Morse_decoder do
       p "Corresponding English word: #{corresponding_english_word}"
       expect(Morse_decoder.decode_morse("#{random_morse_word}")).to eq("#{corresponding_english_word}")
     end
+    it "returns 'HELLO WORLD!' when passed the string '.... . .-.. .-.. ---/.-- --- .-. .-.. -.. -.-.--'" do
+      expect(Morse_decoder.decode_morse(".... . .-.. .-.. ---/.-- --- .-. .-.. -.. -.-.--")).to eq('HELLO WORLD!')
+    end
   end
 end
