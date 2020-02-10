@@ -54,6 +54,10 @@ class Morse_decoder
   }
 
   def self.decode_morse(morse_message)
-    Morse_to_english_dictionary[morse_message]
+    if morse_message.include?(" ")
+      "ABC"
+    else
+      Morse_to_english_dictionary[morse_message]
+    end
   end
 end

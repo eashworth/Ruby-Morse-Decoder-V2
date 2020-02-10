@@ -60,20 +60,25 @@ describe Morse_decoder do
   it 'responds to morse_decoder' do
     expect(morse_decoder).to respond_to(:decode_morse).with(1).argument
   end
-  it 'returns "A" when passed the string ".-"' do
-    expect(morse_decoder.decode_morse('.-')).to eq('A')
-  end
-  it 'returns "B" when passed the string "-..."' do
-    expect(morse_decoder.decode_morse('-...')).to eq('B')
-  end
-  it 'returns "C" when passed the string "-.-."' do
-    expect(morse_decoder.decode_morse('-.-.')).to eq('C')
-  end
-  it 'returns the corresponding English character for any Morse character passed to it' do
-    key = Morse_to_english_dictionary.keys.sample
-    p "Test ran with randomly selected key: #{key}"
-    value = Morse_to_english_dictionary[key]
-    p "test ran with corresponding value: #{value}"
-    expect(morse_decoder.decode_morse(key)).to eq(value)
+  describe '#decode_morse' do
+    it 'returns "A" when passed the string ".-"' do
+      expect(morse_decoder.decode_morse('.-')).to eq('A')
+    end
+    it 'returns "B" when passed the string "-..."' do
+      expect(morse_decoder.decode_morse('-...')).to eq('B')
+    end
+    it 'returns "C" when passed the string "-.-."' do
+      expect(morse_decoder.decode_morse('-.-.')).to eq('C')
+    end
+    it 'returns the corresponding English character for any Morse character passed to it' do
+      key = Morse_to_english_dictionary.keys.sample
+      p "Test ran with randomly selected key: #{key}"
+      value = Morse_to_english_dictionary[key]
+      p "test ran with corresponding value: #{value}"
+      expect(morse_decoder.decode_morse(key)).to eq(value)
+    end
+    it 'returns "ABC" when passed the string ".- -... -.-."' do
+      expect(Morse_decoder.decode_morse('.- -... -.-.')).to eq('ABC')
+    end
   end
 end

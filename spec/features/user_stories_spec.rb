@@ -13,4 +13,12 @@ describe 'User stories' do
   it 'Translates a third Morse code character to English' do
     expect(Morse_decoder.decode_morse('-.-.')).to eq('C')
   end
+
+  # User story 2:
+  # As an English speaker
+  # So I can understand words in Morse code
+  # I would like to translate a word in Morse code to English
+  it 'Translates a word in Morse code' do
+    expect(Morse_decoder.decode_morse('.- -... -.-.')).to eq('ABC')
+  end
 end
