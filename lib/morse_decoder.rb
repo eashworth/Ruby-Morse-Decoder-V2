@@ -79,12 +79,13 @@ class Morse_decoder
   private
 
   def self.decode_morse_character(morse_character)
-
     if morse_character.upcase =~ /[A-Z, 0-9, \\?&'@)(:,=!+]/
       raise EnglishInputError
     elsif (morse_character.include?(".") || morse_character.include?("-")) &&
       Morse_to_english_dictionary[morse_character] == nil
       raise InvalidMorseError
+    elsif Morse_to_english_dictionary[morse_character] == nil
+      raise "Nothing to decode: input is an empty string"
     else
       Morse_to_english_dictionary[morse_character]
     end

@@ -57,4 +57,12 @@ describe 'User stories' do
   it 'Raises error "Unable to decode: input contains English character(s), number(s) or symbol(s)" if input contains English character(s), number(s) or symbol(s)' do
     expect { Morse_decoder.decode_morse("A") }.to raise_error("Unable to decode: input contains English character(s), number(s) or symbol(s)")
   end
+
+  # User story 6:
+  # As an English speaker
+  # So I can remember to provide an input message
+  # I want to be told if the input message is an empty string
+  it 'Raises error "Nothing to decode: input is an empty string" if the input is an empty string' do
+    expect { Morse_decoder.decode_morse("") }.to raise_error("Nothing to decode: input is an empty string")
+  end
 end

@@ -137,5 +137,8 @@ describe Morse_decoder do
         expect { morse_decoder.decode_morse("abc") }.to raise_error("Unable to decode: input contains English character(s), number(s) or symbol(s)")
       end
     end
+    it 'Raises error "Nothing to decode: input is an empty string" if the input is an empty string' do
+      expect { morse_decoder.decode_morse("") }.to raise_error("Nothing to decode: input is an empty string")
+    end
   end
 end
