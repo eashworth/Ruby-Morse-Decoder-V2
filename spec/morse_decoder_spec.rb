@@ -57,7 +57,7 @@ describe Morse_decoder do
     "-..-." => "/"
   }
 
-  it 'responds to morse_decoder' do
+  it 'responds to decode_morse' do
     expect(morse_decoder).to respond_to(:decode_morse).with(1).argument
   end
   describe '#decode_morse' do
