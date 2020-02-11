@@ -1,3 +1,5 @@
+require 'morse_validator'
+
 class Morse_decoder
   class InvalidMorseError < StandardError
     def message
