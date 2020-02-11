@@ -66,3 +66,24 @@ Morse operators use a number of standard abbreviations, (e.g. "ADS" for address)
 ### What this program does not do
 
 In some cases, abbreviations and prosigns are sent as two or more letters in immediate succession, without the spacing that normally defines letter boundaries, resulting in more than one potential combination of letters. In such cases, context and convention typically determine the letter boundaries and therefore the prosign being used. This program will not translate unspaced letter combinations - such input will instead result in an error.
+
+
+### Ideas for expanding this project:
+
+- Deploy as a web app
+
+- Generate test messages by calling a Morse translator API
+
+- Conversion to/from SMS text message using an API such as Twilio
+
+- Add audio output/input using a web audio API
+
+- Add output/input with flashing LED/light-dependent resistor
+
+- Add ability to translate English to Morse code.
+
+- Add prosigns
+
+- Further actions triggered by sending a text message
+
+- Using alternative scripting languages
